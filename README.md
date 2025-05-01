@@ -1,6 +1,6 @@
-# School Management System
+# School System
 
-This is a small school management system that allows us to look through and edit information about students, teachers, subjects, and classes. Registered users can **add**, **edit**, and **delete** data using special forms. 
+This is a small school system that allows us to look through and edit information about students, teachers, subjects, and classes. Registered users can **add**, **edit**, and **delete** data using special forms. 
 Written with Django and Python. 
 
 ## Features
