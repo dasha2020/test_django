@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'albums/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">Schoolgie</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'students_main' %}">Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'teachers_main' %}">Teachers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'subjects_main' %}">Subjects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'classes_main' %}">Classes</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              {% if user.is_authenticated %}
+                  <a href="{% url 'logout' %}" class="btn btn-outline-danger ms-2">Log out</a>
+              {% else %}
+                  <a href="{% url 'login' %}" class="btn btn-outline-primary ms-2">Log in</a>
+                  <a href="{% url 'register' %}" class="btn btn-outline-success ms-2">Register</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+    </nav>
+    <h2>Edit Subject</h2>
+    <div class="vertical">
+      <form method="POST" novalidate>
+          {% csrf_token %}
+          <div class="mb-3">
+              <div class="change_color_label">{{ form.name.label_tag }}</div>
+              {{ form.name }}
+              
+              {% if form.name.errors %}
+                <div class="text-danger">{{ form.name.errors }}</div>
+              {% endif %}
+          </div>
+          
+          <div class="mb-3">
+              <div class="change_color_label">{{ form.description.label_tag }}</div>
+              {{ form.description }}
+              {% if form.description.errors %}
+                <div class="text-danger">{{ form.description.errors }}</div>
+              {% endif %}
+          </div>
+          
+  
+        <button type="submit" class="button_new">Save  <i class="las la-save"></i></button>
+        <a href="{% url 'edit_list_subject' %}" class="button">Back to Subjects List</a>
+          
+    </form>
+    </div>
+
+
+</body>
+</html>
