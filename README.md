@@ -25,19 +25,19 @@ First clone the repository from Github and switch to the new directory:
 ```bash
 git clone https://github.com/dasha2020/test_django.git
 cd test_django
-
+```
 
 Install project dependencies:
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 Then just run the project: 
 
 ```bash
 
 python manage.py runserver
-
+```
 
 Then go to this page in browser -> http://127.0.0.1:8000
