@@ -7,6 +7,10 @@ __pycache__/
 *.so
 
 db.sqlite3
+my_project.zip
+NewExcel.xlsx
+classes_txt.txt
+
 
 # Distribution / packaging
 .Python
